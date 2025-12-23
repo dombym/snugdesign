@@ -1,0 +1,32 @@
+services:
+  web:
+    container_name: snugdesign_app
+    env_file:
+      - .env
+    environment:
+      APP_ENV: development
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    ports:
+      - "8085:80"
+    volumes:
+      - .:/var/www/html
+      - nette-temp:/tmp/nette-temp
+    depends_on:
+      - db
+    entrypoint: sh -c "php bin/console app:migrations && exec docker-php-entrypoint apache2-foreground"
+
+  db:
+    container_name: snugdesign_db
+    image: mysql:8.0.36
+    environment:
+      MYSQL_DATABASE: snugdb
+      MYSQL_ROOT_PASSWORD: nowayNoNo
+      MYSQL_USER: snug
+      MYSQL_PASSWORD: snugPassword1
+    ports:
+      - "3306:3306"
+
+volumes:
+  nette-temp:

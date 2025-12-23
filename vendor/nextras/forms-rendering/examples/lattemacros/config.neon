@@ -1,0 +1,12 @@
+application:
+	scanDirs: false
+	mapping:
+		*: NextrasDemos\FormsRendering\LatteMacros\*Module\*Presenter
+
+latte:
+	extensions:
+		- Nextras\FormsRendering\LatteTags\Bs3\Bs3FormsExtension
+
+
+services:
+	routing.router: Nette\Application\Routers\SimpleRouter('LatteMacros:default')

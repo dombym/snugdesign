@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link
+		rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+		integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+		crossorigin="anonymous">
+	<title>LatteMacros demo</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Form LatteMacros rendering</h1>
+		<hr>
+		{form form class => form-horizontal}
+		<div class="form-group">
+			{bsLabel text class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput text}{inputError text}</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-3">
+				<div class="checkbox">
+				{bsLabel checkbox}{bsInput checkbox}{/bsLabel}
+				</div>
+				{inputError checkbox}
+			</div>
+		</div>
+
+		<div class="form-group">
+			{bsLabel checkbox_list class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput checkbox_list}{inputError checkbox_list}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel integer class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput integer}{inputError integer}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel multi_select class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput multi_select}{inputError multi_select}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel password class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput password}{inputError password}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel radio_list class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput radio_list}{inputError radio_list}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel select class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput select}{inputError select}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel textarea class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput textarea}{inputError textarea}</div>
+		</div>
+		<div class="form-group">
+			{bsLabel multi_upload class => "label-control col-sm-3" /}
+			<div class="col-sm-9">{bsInput multi_upload}{inputError multi_upload}</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-3">
+				{bsInput save class => btn-primary}&nbsp;
+				{bsInput secondary class => btn-default}
+			</div>
+		</div>
+		{/form}
+	</div>
+</body>
+</html>

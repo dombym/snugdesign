@@ -1,0 +1,50 @@
+# see https://doc.nette.org/en/configuring
+
+parameters:
+    env:
+        DB_DRIVER: %env.DB_DRIVER%
+        DB_HOST: %env.DB_HOST%
+        DB_NAME: %env.DB_NAME%
+        DB_USER: %env.DB_USER%
+        DB_PASSWORD: %env.DB_PASSWORD%
+
+
+application:
+	errorPresenter:
+		4xx: Error:Error4xx
+		5xx: Error:Error5xx
+	mapping: App\Presentation\*\**Presenter
+
+latte:
+	strictTypes: yes
+	strictParsing: yes
+	extensions:
+		- App\Presentation\Accessory\LatteExtension
+
+assets:
+	mapping:
+		default:
+			path: assets
+			# type: vite  # Uncomment to activate Vite for asset building
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+extensions:
+	nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+	nextras.dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+
+nextras.orm:
+	model: App\Model\Orm\Orm
+
+# DB from env
+nextras.dbal:
+	driver: %env.DB_DRIVER%
+	host: %env.DB_HOST%
+	database: %env.DB_NAME%
+	username: %env.DB_USER%
+	password: %env.DB_PASSWORD%

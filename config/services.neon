@@ -1,0 +1,18 @@
+services:
+	- App\Core\RouterFactory::createRouter
+	- App\Commands\MigrationsCommand
+	- App\Model\Security\UserAuthenticator
+
+	security.user:
+		factory: Nette\Security\User
+		setup:
+			- setAuthenticator(@App\Model\Security\UserAuthenticator)
+
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Facade
+			- *Factory
+			- *Repository
+			- *Service

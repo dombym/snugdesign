@@ -1,0 +1,10 @@
+# sample production config
+security:
+    authentication:
+        expiration: 15 minutes
+
+parameters:
+	debugMode: false
+
+	tracy:
+		logSeverity: warning

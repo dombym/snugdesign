@@ -1,0 +1,10 @@
+# sample development config
+security:
+    authentication:
+        expiration: 60 minutes
+
+parameters:
+	debugMode: true
+
+	tracy:
+		showLocation: true

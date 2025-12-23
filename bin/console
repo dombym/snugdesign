@@ -1,0 +1,10 @@
+<?php declare(strict_types = 1);
+
+error_reporting(E_ALL & ~E_DEPRECATED);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$bootstrap = new App\Bootstrap;
+$container = $bootstrap->bootWebApplication();
+$application = $container->getByType(\Symfony\Component\Console\Application::class);
+$application->run();
