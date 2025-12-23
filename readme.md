@@ -19,8 +19,9 @@ Jednoduchá ukázková aplikace postavená na **Nette 3.2**, běžící v **Dock
    cd snugdesign
 
 2. Spustit docker commands:
+   ```bash
    docker compose build
    docker compose up -d
    docker compose exec app composer install
 
-3. aplikace běží na http://localhost:8085
+4. aplikace běží na http://localhost:8085
